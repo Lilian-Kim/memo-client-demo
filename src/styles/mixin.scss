@@ -1,0 +1,63 @@
+// media query mixin
+
+// break-point
+$desktop-l-width	: 1440px;
+$tablet-l-width		: 1024px;
+$tablet-s-width		: 768px;
+$mobile-l-width		: 640px;
+$mobile-m-width		: 425px;
+$mobile-s-width		: 375px;
+
+// only PC
+@mixin pc-only {
+	@media screen and (min-width: #{$tablet-l-width + 1}) {
+		@content;
+	}
+}
+// PC large
+@mixin pc-large {
+	@media screen and (min-width: #{$desktop-l-width + 1}) {
+		@content;
+	}
+}
+
+// 태블릿
+@mixin tablet {
+	@media screen and (max-width: #{$tablet-l-width}) {
+		@content;
+	}
+}
+// 모바일
+@mixin mobile {
+	@media screen and (max-width: #{$tablet-s-width}) {
+		@content;
+	}
+}
+// 모바일 large
+@mixin mobile-large {
+	@media screen and (max-width: #{$mobile-l-width}) {
+		@content;
+	}
+}
+// 모바일 mid
+@mixin mobile-mid {
+	@media screen and (max-width: #{$mobile-m-width}) {
+		@content;
+	}
+}
+// 모바일 small
+@mixin mobile-small {
+	@media screen and (max-width: #{$mobile-s-width}) {
+		@content;
+	}
+}
+
+//background
+@mixin background-img($url, $position, $repeat, $size){
+	background: {
+		image: url($url);
+		position: $position;
+		repeat: $repeat;
+		size: $size;
+	}
+}
